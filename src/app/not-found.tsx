@@ -1,5 +1,7 @@
-import Link from 'next/link';
+'use client';
+
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
@@ -11,7 +13,7 @@ export default function NotFound() {
       >
         <h1 className="text-4xl font-bold">404 - Page Not Found</h1>
         <p className="text-foreground-secondary">
-          Oops! The weather seems to have blown this page away.
+          Looks like you've wandered into uncharted weather territory.
         </p>
         <Link
           href="/"

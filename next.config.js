@@ -3,11 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['api.openweathermap.org'],
-    formats: ['image/avif', 'image/webp'],
+    domains: ['openweathermap.org'],
   },
   experimental: {
-    optimizeCss: true,
     turbo: {
       rules: {
         '*.svg': ['@svgr/webpack'],
