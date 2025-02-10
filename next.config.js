@@ -9,8 +9,8 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     turbo: {
-      loaders: {
-        '.svg': ['@svgr/webpack'],
+      rules: {
+        '*.svg': ['@svgr/webpack'],
       },
     },
   },
@@ -30,6 +30,13 @@ const nextConfig = {
         ],
       },
     ];
+  },
+  // Add custom error pages
+  async redirects() {
+    return [];
+  },
+  async rewrites() {
+    return [];
   },
 }
 
