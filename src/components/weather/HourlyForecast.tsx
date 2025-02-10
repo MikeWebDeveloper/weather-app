@@ -27,7 +27,7 @@ export function ThreeHourForecast({ hourly }: ThreeHourForecastProps) {
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background-secondary/60 to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background-secondary/60 to-transparent" />
 
-        <div className="scrollbar-none flex gap-4 overflow-x-auto pb-4">
+        <div className="scrollbar-none flex gap-4 overflow-x-auto pb-4 md:justify-center">
           {hourly.map((hour, index) => (
             <motion.div
               key={hour.dt}

@@ -190,7 +190,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="container mx-auto space-y-8 p-4">
+      <main className="container mx-auto space-y-4 p-4">
         <AnimatePresence mode="wait">
           {error ? (
             <motion.div key="error" className="rounded-lg border border-red-500/20 bg-red-500/10 p-4 text-center text-red-500">
@@ -201,21 +201,21 @@ export default function HomePage() {
               <div className="h-32 w-32 animate-spin rounded-full border-b-2 border-t-2 border-foreground/20" />
             </motion.div>
           ) : weatherData && location ? (
-            <motion.div key="content" className="space-y-8">
+            <motion.div key="content" className="space-y-4">
+              <CurrentWeather
+                current={weatherData.current}
+                location={location}
+              />
+
               <AtmosphericInsights
                 current={weatherData.current}
                 isExpanded={isInsightsExpanded}
                 onToggle={() => setIsInsightsExpanded(!isInsightsExpanded)}
               />
 
-              <CurrentWeather
-                current={weatherData.current}
-                location={location}
-              />
-
               <ThreeHourForecast hourly={weatherData.hourly} />
 
-              <section className="space-y-6">
+              <section className="space-y-4">
                 <motion.h2 className="text-xl font-semibold bg-gradient-to-r from-foreground to-foreground-secondary bg-clip-text text-transparent">
                   5-Day Forecast
                 </motion.h2>
