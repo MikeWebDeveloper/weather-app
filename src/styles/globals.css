@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode colors */
+    --background: 0 0% 100%;
+    --background-secondary: 0 0% 96%;
+    --foreground: 0 0% 0%;
+    --foreground-secondary: 0 0% 40%;
+    --accent: 217 91% 60%;
+    --accent-secondary: 217 91% 67%;
+  }
+
+  :root[class~="dark"] {
+    /* Dark mode colors */
+    --background: 0 0% 4%;
+    --background-secondary: 0 0% 7%;
+    --foreground: 0 0% 100%;
+    --foreground-secondary: 0 0% 64%;
+    --accent: 217 91% 60%;
+    --accent-secondary: 217 91% 67%;
+  }
+
+  * {
+    @apply transition-[background-color,border-color,backdrop-filter] duration-200;
+  }
+
+  /* Immediate text color changes */
+  .text-foreground,
+  .text-foreground-secondary,
+  .text-transparent {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 100ms;
+  }
+
+  /* Gradient text optimization */
+  .bg-gradient-to-r {
+    transition: none;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .bento-grid {
+    @apply grid grid-cols-bento gap-4 p-4;
+  }
+
+  .weather-card {
+    @apply relative overflow-hidden rounded-2xl bg-background-secondary/60 p-6 shadow-lg transition-all duration-300 hover:shadow-xl;
+  }
+
+  .blur-backdrop {
+    @apply absolute inset-0 backdrop-blur-[2px] transition-all duration-300;
+  }
+
+  /* Card text transitions */
+  .weather-card-text {
+    @apply transition-colors duration-100;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} 
